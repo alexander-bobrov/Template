@@ -19,12 +19,11 @@ namespace Template
         
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication(_configuration);
+            services.AddDatabase(_configuration);
+            
             services.AddControllers();
             services.AddSwagger();
-
-            services.Configure<SecurityOptions>(_configuration.GetSection(nameof(SecurityOptions)));
-            services.AddAuthentication()
-            services.AddDatabase(_configuration);
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -43,17 +43,6 @@ namespace Template.Controllers
             return Ok(entry.Entity.Id);
         }
         
-        [HttpGet("{id:guid}")]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> Get(Guid id)
-        {
-            var account = await _db.Accounts.FindAsync(id);
-            if (account is null) return NotFound("Account not found");
-            
-            return Ok(new {login = account.Login});
-        }
-
         [HttpDelete("{id:guid}/delete")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]

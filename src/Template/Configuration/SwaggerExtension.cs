@@ -23,7 +23,7 @@ namespace Template.Configuration
                             {
                                 Name = JwtBearerDefaults.AuthenticationScheme,
                                 Scheme = JwtBearerDefaults.AuthenticationScheme,
-                                Type = SecuritySchemeType.ApiKey,
+                                Type = SecuritySchemeType.Http,
                                 In = ParameterLocation.Header
                             });
                             
