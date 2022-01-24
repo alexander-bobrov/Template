@@ -1,10 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template", "src\Template\Template.csproj", "{AA75DB6C-F1E5-4133-8F7D-A3E879834349}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Template", "src\Template\Template.csproj", "{AA75DB6C-F1E5-4133-8F7D-A3E879834349}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "src\Database\Database.csproj", "{52B32625-515A-404C-876F-7FB700E7A02C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "src\Common\Common.csproj", "{218D76C0-47D8-4781-B0FA-ED41C7CE6867}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database", "src\Database\Database.csproj", "{52B32625-515A-404C-876F-7FB700E7A02C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,9 +21,11 @@ Global
 		{52B32625-515A-404C-876F-7FB700E7A02C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52B32625-515A-404C-876F-7FB700E7A02C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52B32625-515A-404C-876F-7FB700E7A02C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{218D76C0-47D8-4781-B0FA-ED41C7CE6867}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{218D76C0-47D8-4781-B0FA-ED41C7CE6867}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{218D76C0-47D8-4781-B0FA-ED41C7CE6867}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{218D76C0-47D8-4781-B0FA-ED41C7CE6867}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C34610A9-5641-48DD-90FF-F5134051C04A}
 	EndGlobalSection
 EndGlobal

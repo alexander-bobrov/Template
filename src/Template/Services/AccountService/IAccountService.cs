@@ -10,5 +10,7 @@ namespace Template.Services.AccountService
 
         Task<Account> FindAsync(string login);
         Task DeleteAsync(string login);
+
+        Task<string> GetPasswordAsync(string login);
     }
 }

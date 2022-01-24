@@ -1,4 +1,4 @@
-﻿namespace Template.Models.Requests
+﻿namespace Template.Controllers.Requests
 {
     public class AccountRequest
     {

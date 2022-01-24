@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Template.Models.Requests;
+using Template.Controllers.Requests;
 using Template.Services.AccountService;
 using Template.Services.AccountService.Models;
 
@@ -33,12 +33,13 @@ namespace Template.Controllers
             var accountExists = await accountService.FindAsync(request.Login) is not null;
             if (accountExists) return Conflict();
 
-            var accountId = accountService.AddAsync(new Account { Login = request.Login }, request.Password);
+            await accountService.AddAsync(new Account { Login = request.Login }, request.Password);
 
-            return Ok(accountId);
+            return Ok();
         }
         
-        [HttpDelete("{id:guid}/delete")]
+        [HttpDelete("delete")]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> Delete(string login)

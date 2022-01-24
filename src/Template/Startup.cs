@@ -20,8 +20,8 @@ namespace Template
         
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication(_configuration);
             services.AddDatabase(_configuration);
+            services.AddAuthentication(_configuration);            
             services.UseBackgroundCleanup(_configuration);
 
             services.AddControllers();

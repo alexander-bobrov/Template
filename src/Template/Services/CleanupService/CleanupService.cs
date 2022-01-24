@@ -37,7 +37,8 @@ namespace Template.Services.CleanupService
         {
             using (var db = dbFactory.CreateDbContext())
             {
-                var accountsToDelete = db.Accounts.Where(x => x.CreatedAtUtc + options.RetentionPeriod > DateTime.UtcNow);
+
+                var accountsToDelete = db.Accounts.Where(x => x.CreatedAtUtc.AddHours(options.RetentionPeriodInHours) > DateTime.UtcNow);
                 foreach (var account in accountsToDelete)
                 {
                     db.Accounts.Remove(account);

@@ -2,7 +2,6 @@
 using Database.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Template.Services.AccountService.Models;
@@ -20,7 +19,7 @@ namespace Template.Services.AccountService
         public async Task AddAsync(Account account, string password)
         {
             var hashedPassword = new PasswordHasher<object>().HashPassword(null, password);
-            var entry = db.Accounts.Add(new AccountEntity { Login = account.Login, PasswordHash = hashedPassword });
+            db.Accounts.Add(new AccountEntity { Login = account.Login, PasswordHash = hashedPassword });
             await db.SaveChangesAsync();
         }
 
@@ -39,7 +38,13 @@ namespace Template.Services.AccountService
                 .Where(x => x.Login == login)
                 .FirstOrDefaultAsync();
 
-            return entity is null ? null : new Account();
+            return entity is null ? null : new Account { Login = entity.Login};
+        }
+
+        public async Task<string> GetPasswordAsync(string login)
+        {
+            var entity = await db.Accounts.AsNoTracking().Where(x => x.Login == login).FirstOrDefaultAsync();
+            return entity is null ? null : entity.PasswordHash;
         }
     }
 }
