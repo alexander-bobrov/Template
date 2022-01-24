@@ -9,7 +9,7 @@ namespace Database.Configuration
         public static void AddDatabase(this IServiceCollection services, IConfiguration configuration)
         {
             var options = configuration.GetSection(nameof(DatabaseOptions)).Get<DatabaseOptions>();
-            
+
             services.AddDbContext<TemplateContext>(x => x.UseSqlite(options.ConnectionString), optionsLifetime: ServiceLifetime.Singleton);
             services.AddDbContextFactory<TemplateContext>(x => x.UseSqlite(options.ConnectionString));
         }

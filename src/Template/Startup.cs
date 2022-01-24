@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Template.Configuration;
+using Template.Services.CleanupService.Configuration;
 
 namespace Template
 {
@@ -21,7 +22,8 @@ namespace Template
         {
             services.AddAuthentication(_configuration);
             services.AddDatabase(_configuration);
-            
+            services.UseBackgroundCleanup(_configuration);
+
             services.AddControllers();
             services.AddSwagger();
         }

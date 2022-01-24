@@ -40,7 +40,7 @@ namespace Template.Controllers
             var account = await _db.Accounts.FirstOrDefaultAsync(x => x.Login == request.Login);
             if (account is null) return NotFound("Account not found");
             
-            var passwordVerification = new PasswordHasher<object>().VerifyHashedPassword(null, account.Password, request.Password);
+            var passwordVerification = new PasswordHasher<object>().VerifyHashedPassword(null, account.Login, request.Password);
             if (passwordVerification == PasswordVerificationResult.Failed) return Unauthorized("Invalid password"); 
             
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_securityOptions.SecretKey));    

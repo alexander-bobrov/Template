@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Database;
-using Database.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Template.Models.Requests;
-
+using Template.Services.AccountService;
+using Template.Services.AccountService.Models;
 
 namespace Template.Controllers
 {
@@ -18,13 +15,13 @@ namespace Template.Controllers
     [Route("account")]
     public class AccountController : ControllerBase
     {
-        private readonly ILogger<AccountController> _logger;
-        private readonly TemplateContext _db;
+        private readonly ILogger<AccountController> logger;
+        private readonly AccountService accountService;
 
-        public AccountController(ILogger<AccountController> logger, TemplateContext db)
+        public AccountController(ILogger<AccountController> logger, AccountService accountService)
         {
-            _logger = logger;
-            _db = db;
+            this.logger = logger;
+            this.accountService = accountService;
         }
 
         [AllowAnonymous]
@@ -33,27 +30,20 @@ namespace Template.Controllers
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         public async Task<IActionResult> Create([FromBody] AccountRequest request)
         {
-            var accountExists = await _db.Accounts.AnyAsync(x => x.Login == request.Login);
+            var accountExists = await accountService.FindAsync(request.Login) is not null;
             if (accountExists) return Conflict();
-            
-            var hashedPassword = new PasswordHasher<object>().HashPassword(null, request.Password);
-            var entry = _db.Accounts.Add(new AccountEntity {Login = request.Login, Password = hashedPassword});
-            await _db.SaveChangesAsync();
 
-            return Ok(entry.Entity.Id);
+            var accountId = accountService.AddAsync(new Account { Login = request.Login }, request.Password);
+
+            return Ok(accountId);
         }
         
         [HttpDelete("{id:guid}/delete")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> Delete(Guid id)
+        public async Task<IActionResult> Delete(string login)
         {
-            var account = await _db.Accounts.FindAsync(id);
-            if (account is null) return NotFound("Account not found");
-       
-            _db.Accounts.Remove(account);
-            await _db.SaveChangesAsync();
-
+            await accountService.DeleteAsync(login);
             return NoContent();
         }
     }
