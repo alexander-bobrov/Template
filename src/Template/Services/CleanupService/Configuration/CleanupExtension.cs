@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Template.Services.CleanupService.Configuration
 {
-    public static class CleanupExtension
+    public static class SmtpExtension
     {
         public static void UseBackgroundCleanup(this IServiceCollection services, IConfiguration configuration)
         {

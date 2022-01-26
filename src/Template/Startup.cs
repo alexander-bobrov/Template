@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Template.Configuration;
 using Template.Services.CleanupService.Configuration;
+using Template.Services.MailService.Configuration;
 
 namespace Template
 {
@@ -23,6 +24,7 @@ namespace Template
             services.AddDatabase(_configuration);
             services.AddAuthentication(_configuration);            
             services.UseBackgroundCleanup(_configuration);
+            services.UseSmtpService(_configuration);
 
             services.AddControllers();
             services.AddSwagger();

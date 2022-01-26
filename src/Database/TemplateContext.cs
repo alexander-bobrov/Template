@@ -11,9 +11,11 @@ namespace Database
         }
 
         //dotnet ef migrations add --startup-project Template --project Database Initial
+        public DbSet<MessageEntity> Messages { get; set; }
         public DbSet<AccountEntity> Accounts { get; set; }
+        
 
-            
+
     }
     
     
