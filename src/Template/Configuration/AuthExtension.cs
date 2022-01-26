@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using Template.Services.AccountService;
 
 namespace Template.Configuration
 {
@@ -28,8 +27,6 @@ namespace Template.Configuration
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key))
                     };
                 });
-
-            services.AddScoped<AccountService>();
         }
     }
 }

@@ -28,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\Template\Template.csproj" />
+    <ProjectReference Include="..\Template\Template.csproj" />
   </ItemGroup>
 
 </Project>

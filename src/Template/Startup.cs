@@ -21,10 +21,10 @@ namespace Template
         
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDatabase(_configuration);
-            services.AddAuthentication(_configuration);            
-            services.UseBackgroundCleanup(_configuration);
+            services.AddDatabase(_configuration);          
+            //services.UseBackgroundCleanup(_configuration);
             services.UseSmtpService(_configuration);
+            services.UseMessageService(_configuration);
 
             services.AddControllers();
             services.AddSwagger();
@@ -37,11 +37,7 @@ namespace Template
             
             app.UseHttpsRedirection();
 
-            app.UseRouting();
-            
-            app.UseAuthentication();
-            app.UseAuthorization();
-            
+            app.UseRouting();         
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }

@@ -27,8 +27,8 @@ namespace Tests
         public void SendMail_Should_BeOk()
         {
             var message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Mr. Test", "mr@test.com"));
-            message.To.Add(new MailboxAddress("Mrs. Test", "mrs@test.com"));
+            message.From.Add(new MailboxAddress("Mr.Test", "mr@test.com"));
+            message.To.Add(new MailboxAddress("Mrs.Test", "mrs@test.com"));
             message.Subject = "Test message";
 
             message.Body = new TextPart("plain")

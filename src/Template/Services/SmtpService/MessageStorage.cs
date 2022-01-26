@@ -36,7 +36,7 @@ namespace Template.Services.MailService
                 db.Messages.Add(new Database.Entities.MessageEntity
                 {
                     From = message.From.ToString(),
-                    To = message.To.ToString(),
+                    To = message.To[0].ToString(),
                     Text = message.TextBody,
                     Html = message.HtmlBody
 

@@ -38,11 +38,10 @@ namespace Template.Services.CleanupService
             using (var db = dbFactory.CreateDbContext())
             {
 
-                var accountsToDelete = db.Accounts.Where(x => x.CreatedAtUtc.AddHours(options.RetentionPeriodInHours) > DateTime.UtcNow);
-                foreach (var account in accountsToDelete)
+                var messagesToDelete = db.Messages.Where(x => x.CreatedAtUtc.AddHours(options.RetentionPeriodInHours) > DateTime.UtcNow);
+                foreach (var message in messagesToDelete)
                 {
-                    db.Accounts.Remove(account);
-                    logger.LogInformation($"Account wih login '{account.Login}' has been deleted");
+                    db.Messages.Remove(message);
                 }
 
                 await db.SaveChangesAsync();
