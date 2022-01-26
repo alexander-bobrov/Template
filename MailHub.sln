@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MailHub", "src\MailHub\MailHub.csproj", "{AA75DB6C-F1E5-4133-8F7D-A3E879834349}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database", "src\Database\Database.csproj", "{52B32625-515A-404C-876F-7FB700E7A02C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "src\Tests\Tests.csproj", "{C4770F23-5E2F-4876-82EB-495F17756DAA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA75DB6C-F1E5-4133-8F7D-A3E879834349}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA75DB6C-F1E5-4133-8F7D-A3E879834349}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA75DB6C-F1E5-4133-8F7D-A3E879834349}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA75DB6C-F1E5-4133-8F7D-A3E879834349}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52B32625-515A-404C-876F-7FB700E7A02C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52B32625-515A-404C-876F-7FB700E7A02C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52B32625-515A-404C-876F-7FB700E7A02C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52B32625-515A-404C-876F-7FB700E7A02C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4770F23-5E2F-4876-82EB-495F17756DAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4770F23-5E2F-4876-82EB-495F17756DAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4770F23-5E2F-4876-82EB-495F17756DAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4770F23-5E2F-4876-82EB-495F17756DAA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C34610A9-5641-48DD-90FF-F5134051C04A}
+	EndGlobalSection
+EndGlobal

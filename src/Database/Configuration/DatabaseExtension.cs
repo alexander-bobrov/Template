@@ -10,8 +10,8 @@ namespace Database.Configuration
         {
             var options = configuration.GetSection(nameof(DatabaseOptions)).Get<DatabaseOptions>();
 
-            services.AddDbContext<TemplateContext>(x => x.UseSqlite(options.ConnectionString), optionsLifetime: ServiceLifetime.Singleton);
-            services.AddDbContextFactory<TemplateContext>(x => x.UseSqlite(options.ConnectionString));
+            services.AddDbContext<MailHubContext>(x => x.UseSqlite(options.ConnectionString), optionsLifetime: ServiceLifetime.Singleton);
+            services.AddDbContextFactory<MailHubContext>(x => x.UseSqlite(options.ConnectionString));
         }
     }
 }

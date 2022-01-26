@@ -7,8 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MimeKit;
 using NUnit.Framework;
-using System.Threading.Tasks;
-using Template.Services.MailService.Configuration;
+using MailHub.Services.MailService.Configuration;
 
 namespace Tests
 {

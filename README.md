@@ -1,3 +1,3 @@
-# Template
-docker build -f Template\Dockerfile -t template .
-docker run -it template
+# MailHub
+docker build -f MailHub\Dockerfile -t MailHub .
+docker run -it MailHub
