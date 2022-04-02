@@ -9,7 +9,7 @@ using Template.Services.AccountService.Models;
 
 namespace Template.Services.AccountService
 {
-    public class AccountService : IAccountService
+    public class AccountService
     {
         private TemplateContext db;
 
@@ -20,13 +20,13 @@ namespace Template.Services.AccountService
         public async Task AddAsync(Account account, string password)
         {
             var hashedPassword = new PasswordHasher<object>().HashPassword(null, password);
-            var entry = db.Accounts.Add(new AccountEntity { Login = account.Login, PasswordHash = hashedPassword });
+            db.Accounts.Add(new AccountEntity { Login = account.Login, PasswordHash = hashedPassword });
             await db.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(string login)
+        public async Task DeleteAsync(Guid id)
         {
-            var entity = db.Accounts.Where(x => x.Login == login).FirstOrDefault();
+            var entity = db.Accounts.FirstOrDefault(x => x.Id == id);
             if (entity == null) return;
 
             db.Accounts.Remove(entity);

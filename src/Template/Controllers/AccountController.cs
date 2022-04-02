@@ -38,12 +38,12 @@ namespace Template.Controllers
             return Ok(accountId);
         }
         
-        [HttpDelete("{id:guid}/delete")]
+        [HttpDelete("{id:guid}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> Delete(string login)
+        public async Task<IActionResult> Delete(Guid id)
         {
-            await accountService.DeleteAsync(login);
+            await accountService.DeleteAsync(id);
             return NoContent();
         }
     }
