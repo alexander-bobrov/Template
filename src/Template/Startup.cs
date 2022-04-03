@@ -22,7 +22,7 @@ namespace Template
         {
             services.AddAuthentication(_configuration);
             services.AddDatabase(_configuration);
-            services.UseBackgroundCleanup(_configuration);
+            services.AddBackgroundCleanup(_configuration);
 
             services.AddControllers();
             services.AddSwagger();

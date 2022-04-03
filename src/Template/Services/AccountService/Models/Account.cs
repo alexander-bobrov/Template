@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Template.Services.AccountService.Models
+﻿namespace Template.Services.AccountService.Models
 {
     public record Account
     {

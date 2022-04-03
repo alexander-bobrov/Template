@@ -39,7 +39,7 @@ namespace Template.Services.AccountService
                 .Where(x => x.Login == login)
                 .FirstOrDefaultAsync();
 
-            return entity is null ? null : new Account();
+            return entity is null ? null : new Account { Login = entity.Login };
         }
     }
 }
