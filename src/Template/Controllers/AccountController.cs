@@ -43,6 +43,7 @@ namespace Template.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> Delete(Guid id)
         {
+            //todo validation
             await accountService.DeleteAsync(id);
             return NoContent();
         }

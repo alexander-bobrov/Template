@@ -41,7 +41,8 @@ namespace Template.Controllers
             if (account is null) return NotFound("Account not found");
             
             var passwordVerification = new PasswordHasher<object>().VerifyHashedPassword(null, account.Login, request.Password);
-            if (passwordVerification == PasswordVerificationResult.Failed) return Unauthorized("Invalid password"); 
+            if (passwordVerification == PasswordVerificationResult.Failed) 
+                return Unauthorized("Invalid login or password"); 
             
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_securityOptions.SecretKey));    
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
